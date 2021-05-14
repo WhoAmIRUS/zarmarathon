@@ -4,7 +4,9 @@
   "scripts": {
     "build:dev": "webpack --env NODE_ENV=development --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "repository": "https://github.com/WhoAmIRUS/zarmarathon.git",
   "author": "dglazkov",
@@ -16,9 +18,28 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.4",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
+    "css-modules-typescript-loader": "^4.0.1",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-flowtype": "^5.7.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "4.5.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0",
     "sass": "^1.32.12",
     "sass-loader": "10.1.1",
     "style-loader": "2.0.0",
@@ -27,5 +48,11 @@
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+      "pretty-quick --staged",
+      "eslint ./src"
+    ]
   }
 }
