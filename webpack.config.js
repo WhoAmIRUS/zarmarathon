@@ -28,7 +28,6 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-modules-typescript-loader?modules',
           {
             loader: 'css-loader',
             options: {
@@ -41,6 +40,26 @@ module.exports = {
           },
           'sass-loader',
         ],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
       },
     ],
   },
