@@ -1,8 +1,5 @@
-import cn from 'classnames';
-import styles from './App.modules.scss';
+import Home from './pages/Home';
 
-const App = () => {
-  return <div className={cn(styles.header, 'color')}>Hello world</div>;
-};
+const App = () => <Home />;
 
 export default App;

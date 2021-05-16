@@ -1,0 +1,28 @@
+@import '../../variables';
+
+.root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $second 100%);
+  overflow-x: hidden;
+}
+
+.header {
+  margin-bottom: $margin-large;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentLeft {
+  max-width: 506px;
+}
+
+.contentTitle {
+  margin-bottom: $margin-extra-small;
+}
+
+.contentDescription {
+  margin-bottom: $margin-small;
+}
