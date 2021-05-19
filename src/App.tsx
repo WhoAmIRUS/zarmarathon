@@ -1,5 +1,7 @@
-import Home from './pages/Home';
+import { useRoutes } from 'hookrouter';
+import routes from './routes';
+import NotFound from './pages/NotFound';
 
-const App = () => <Home />;
+const App = () => useRoutes(routes) || <NotFound />;
 
 export default App;

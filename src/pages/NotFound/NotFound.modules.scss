@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.root {
+  height: 100vh;
+  width: 100%;
+  background-color: $danger;
+}
+
+.rootText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 500px;
+  line-height: 818px;
+  letter-spacing: 4px;
+  color: rgba(0, 0, 0, 0.5);
+}
