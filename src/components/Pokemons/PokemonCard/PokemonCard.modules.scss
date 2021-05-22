@@ -29,6 +29,7 @@
 .titleName {
   margin-bottom: 12px;
   text-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  text-transform: capitalize;
 }
 
 .statWrap {
@@ -117,6 +118,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 12px;
+  text-transform: capitalize;
 
   &:last-child {
     margin-right: 0;

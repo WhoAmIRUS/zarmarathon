@@ -1,7 +1,6 @@
 import React from 'react';
 import { navigate } from 'hookrouter';
 import s from './Home.modules.scss';
-import Header from '../../components/Header';
 import Layout from '../../components/Layout';
 import Heading from '../../components/Heading';
 import Button from '../../components/Button';
@@ -10,7 +9,6 @@ import { LinkRoutes } from '../../routes';
 
 const Home = () => (
   <div className={s.root}>
-    <Header className={s.header} />
     <Layout className={s.contentWrapper}>
       <div className={s.contentLeft}>
         <Heading tag="h1" className={s.contentTitle}>

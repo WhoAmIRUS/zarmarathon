@@ -1,0 +1,13 @@
+@import '../../variables';
+
+.root {
+  padding-top: $margin-medium;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: $margin-extra-small;
+}

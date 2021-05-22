@@ -1,15 +1,9 @@
 import React from 'react';
-import Header from '../../components/Header';
 
 interface EmptyProps {
   title?: string;
 }
 
-const Empty: React.FC<EmptyProps> = ({ title }) => (
-  <div>
-    <Header />
-    {title}
-  </div>
-);
+const Empty: React.FC<EmptyProps> = ({ title }) => <div>{title}</div>;
 
 export default Empty;

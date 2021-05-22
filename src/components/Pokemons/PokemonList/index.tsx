@@ -4,14 +4,12 @@ import PokemonCard from '../PokemonCard';
 import s from './PokemonList.modules.scss';
 
 interface PokemonListProps {
-  pokemons: Pokemon[];
+  pokemons?: Pokemon[];
 }
 
 const PokemonList: React.FC<PokemonListProps> = ({ pokemons }) => (
   <div className={s.root}>
-    {pokemons.map((pokemon) => (
-      <PokemonCard key={pokemon.id} pokemon={pokemon} />
-    ))}
+    {pokemons ? pokemons.map((pokemon) => <PokemonCard key={pokemon.id} pokemon={pokemon} />) : 'No data'}
   </div>
 );
 
