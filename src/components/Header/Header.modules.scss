@@ -1,18 +1,18 @@
 @import '../../variables';
 
 .root {
-  height: 93px;
+  height: $header-height;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $third;
   box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
+  position: relative;
 }
 
 .wrap {
   width: 100%;
   max-width: $header-width;
-  height: 63px;
   display: flex;
   justify-content: space-between;
   align-items: center;

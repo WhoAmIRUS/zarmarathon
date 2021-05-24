@@ -1,18 +1,15 @@
 @import '../../variables';
 
 .root {
-  min-height: 100vh;
   background: linear-gradient(180deg, $third 0%, $second 100%);
+  min-height: calc(100vh - #{$header-height});
   overflow-x: hidden;
-}
-
-.header {
-  margin-bottom: $margin-large;
 }
 
 .contentWrapper {
   display: flex;
   justify-content: space-between;
+  padding-top: $margin-extra-large !important;
 }
 
 .contentLeft {

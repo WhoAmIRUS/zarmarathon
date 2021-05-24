@@ -4,13 +4,12 @@ import Heading from '../../Heading';
 
 import s from './PokemonCard.modules.scss';
 import { PokemonCardProps } from './PokemonCard.types';
-import { upperCaseFirstLetter } from '../../../utils';
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
   <div className={s.root}>
     <div className={s.infoWrap}>
       <Heading tag="h5" className={s.titleName}>
-        {upperCaseFirstLetter(pokemon.name)}
+        {pokemon.name}
       </Heading>
       <div className={s.statWrap}>
         <div className={s.statItem}>
@@ -25,7 +24,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
       <div className={s.labelWrap}>
         {pokemon.types.map((type) => (
           <span key={type} className={cn(s.label, s[`pokemonColor_${type}`])}>
-            {upperCaseFirstLetter(type)}
+            {type}
           </span>
         ))}
       </div>
