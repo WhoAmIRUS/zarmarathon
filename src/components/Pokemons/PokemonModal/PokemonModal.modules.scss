@@ -1,0 +1,102 @@
+@import '../../../variables';
+
+@mixin block {
+  background: #fdfdfd;
+  box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
+  border-radius: 8px;
+}
+
+.root {
+  width: 797px;
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  border-radius: 16px;
+  display: flex;
+}
+
+.pokemonColor {
+  &_grass,
+  &_bug {
+    background-color: $pokemon-green;
+  }
+
+  &_fire {
+    background-color: $pokemon-orange;
+  }
+
+  &_water,
+  &_flying {
+    background-color: $pokemon-light-blue;
+  }
+
+  &_poison {
+    background-color: $pokemon-purple;
+  }
+}
+
+.info {
+  flex-grow: 1;
+  padding: 30px 20px 25px 13px;
+}
+
+.pictureWrap {
+  width: 365px;
+  height: 371px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
+  border-radius: 16px 0 0 16px;
+
+  img {
+    width: 80%;
+  }
+}
+
+.name {
+  color: #fdfdfd;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.statWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.statItem {
+  @include block;
+  display: flex;
+  flex-direction: column;
+  width: 82px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #4b4b4b;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.statValue {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #212121;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: #212121;
+  margin: 0 auto 8px;
+}

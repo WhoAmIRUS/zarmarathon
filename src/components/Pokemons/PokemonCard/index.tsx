@@ -3,10 +3,16 @@ import cn from 'classnames';
 import Heading from '../../Heading';
 
 import s from './PokemonCard.modules.scss';
-import { PokemonCardProps } from './PokemonCard.types';
+import { Pokemon } from '../../../interface/pokemons';
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => (
-  <div className={s.root}>
+export interface PokemonCardProps {
+  pokemon: Pokemon;
+  onPokemonClick?: (pokemon: Pokemon) => void;
+}
+
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onPokemonClick }) => (
+  // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+  <div className={s.root} onClick={() => onPokemonClick && onPokemonClick(pokemon)}>
     <div className={s.infoWrap}>
       <Heading tag="h5" className={s.titleName}>
         {pokemon.name}
