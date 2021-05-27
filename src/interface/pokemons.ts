@@ -33,7 +33,3 @@ export interface Pokemon {
   order: number;
   weight: number;
 }
-
-export interface PokemonCardProps {
-  pokemon: Pokemon;
-}

@@ -1,16 +1,28 @@
-import Url from 'url';
+import Url, { UrlObject } from 'url';
 import config, { Endpoints } from '../config';
+import { RequestOptions } from '../interface/api';
 
-export async function req(endpoint: Endpoints) {
-  const url = Url.format(getUrlWithParamsConfig(endpoint));
+export async function req<T>(endpoint: Endpoints, options?: RequestOptions): Promise<T> {
+  const url = Url.format(getUrlWithParamsConfig(endpoint, options));
 
   return fetch(url).then((res) => res.json());
 }
 
-export function getUrlWithParamsConfig(endpointConfig: Endpoints) {
+function getConfigPathname(endpointConfig: Endpoints, id?: string | number): string {
+  const configPathname = config.client.endpoint[endpointConfig].uri.pathname;
+
+  if (id) {
+    return configPathname.replace(':id', `${id}`);
+  }
+
+  return configPathname;
+}
+
+export function getUrlWithParamsConfig(endpointConfig: Endpoints, options: RequestOptions = {}): UrlObject {
   return {
     protocol: config.client.server.protocol,
     host: config.client.server.host,
-    pathname: config.client.endpoint[endpointConfig].uri.pathname,
+    pathname: getConfigPathname(endpointConfig, options.id),
+    query: options.query,
   };
 }
