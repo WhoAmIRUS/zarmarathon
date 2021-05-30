@@ -1,8 +1,8 @@
 import React from 'react';
 import PokemonModal from '../../components/Pokemons/PokemonModal';
 import useData from '../../hooks/useData';
-import { Endpoints } from '../../config';
 import { Pokemon } from '../../interface/pokemons';
+import { Endpoints } from '../../interface/api';
 
 export interface PokemonProps {
   id: number;

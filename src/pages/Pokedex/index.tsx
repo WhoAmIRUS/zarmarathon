@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { navigate } from 'hookrouter';
 import PokemonList from '../../components/Pokemons/PokemonList';
 import s from './Pokedex.modules.scss';
-import { Endpoints } from '../../config';
 import Heading from '../../components/Heading';
 import Layout from '../../components/Layout';
 import useData from '../../hooks/useData';
 import { Pokemon } from '../../interface/pokemons';
-import { Query } from '../../interface/api';
+import { Endpoints, Query } from '../../interface/api';
 import useDebounce from '../../hooks/useDebounce';
 import { LinkRoutes } from '../../routes';
 
