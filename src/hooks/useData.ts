@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { req } from '../utils/api';
-import { Endpoints } from '../config';
-import { RequestOptions } from '../interface/api';
+import { Endpoints, RequestOptions } from '../interface/api';
 
 export interface UseDataResponse<T> {
   isLoading: boolean;

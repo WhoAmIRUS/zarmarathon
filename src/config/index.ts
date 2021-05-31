@@ -1,19 +1,16 @@
-export enum Endpoints {
-  GET_POKEMONS = 'getPokemons',
-  GET_POKEMON_BY_ID = 'getPokemonById',
-}
+import { Endpoints, Method, Protocol } from '../interface/api';
 
 interface ConfigClientEndpointUri {
   pathname: string;
 }
 
 interface ConfigClientEndpoint {
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  method: Method;
   uri: ConfigClientEndpointUri;
 }
 
 interface ConfigClientServer {
-  protocol: 'http' | 'https';
+  protocol: Protocol;
   host: string;
 }
 
@@ -45,6 +42,24 @@ const config: Config = {
         method: 'GET',
         uri: {
           pathname: 'api/v1/pokemon/:id',
+        },
+      },
+      [Endpoints.CREATE_POKEMON]: {
+        method: 'POST',
+        uri: {
+          pathname: 'api/v1/pokemon/create',
+        },
+      },
+      [Endpoints.UPDATE_POKEMON]: {
+        method: 'PUT',
+        uri: {
+          pathname: 'api/v1/pokemon/:id',
+        },
+      },
+      [Endpoints.DELETE_POKEMON]: {
+        method: 'DELETE',
+        uri: {
+          pathname: 'api/v1/pokemon/:id/delete',
         },
       },
     },
