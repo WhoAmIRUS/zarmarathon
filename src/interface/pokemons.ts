@@ -1,3 +1,5 @@
+import { PokemonTypesData } from '../store/pokemon/pokemon.types';
+
 export interface PokemonStats {
   hp: number;
   attack: number;
@@ -6,8 +8,6 @@ export interface PokemonStats {
   ['special-attack']: number;
   ['special-defense']: number;
 }
-
-export type PokemonTypes = 'grass' | 'poison' | 'fire' | 'flying' | 'bug' | 'water';
 
 export type PokemonAbilities =
   | 'overgrow'
@@ -23,7 +23,7 @@ export interface Pokemon {
   name_clean: string;
   abilities: PokemonAbilities[];
   stats: PokemonStats;
-  types: PokemonTypes[];
+  types: PokemonTypesData;
   img: string;
   name: string;
   ['base_experience']: number;

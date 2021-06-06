@@ -14,10 +14,11 @@ module.exports = {
   plugins: ['prettier', 'react', '@typescript-eslint'],
   rules: {
     'react/prop-types': 'off',
+    'no-param-reassign': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'no-console': 'error',
     'no-shadow': 'off',
-    'camelcase': 'off',
+    camelcase: 'off',
     'react/no-array-index-key': 'off',
     'object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/no-shadow': ['error'],

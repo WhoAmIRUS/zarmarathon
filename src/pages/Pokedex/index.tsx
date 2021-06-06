@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { navigate } from 'hookrouter';
 import PokemonList from '../../components/Pokemons/PokemonList';
 import s from './Pokedex.modules.scss';
 import Heading from '../../components/Heading';
 import Layout from '../../components/Layout';
 import useData from '../../hooks/useData';
-import { Pokemon, PokemonTypes } from '../../interface/pokemons';
+import { Pokemon } from '../../interface/pokemons';
 import { Endpoints, Query } from '../../interface/api';
 import { LinkRoutes } from '../../routes';
-
-const pokemonTypeOptions: { key: PokemonTypes; label: string }[] = [
-  { key: 'grass', label: 'Grass' },
-  { key: 'poison', label: 'Poison' },
-  { key: 'fire', label: 'Fire' },
-  { key: 'flying', label: 'Flying' },
-  { key: 'bug', label: 'Bug' },
-  { key: 'water', label: 'Water' },
-];
+import { useAppDispatch, useAppSelector } from '../../store';
+import { getPokemonTypes } from '../../store/pokemon/pokemon.slice';
+import { getPokemonTypesSelector } from '../../store/pokemon/pokemon.selector';
 
 interface PokemonsRegistry {
   count: number;
@@ -32,10 +26,16 @@ interface PokemonsRegistryQuery extends Query {
 
 const Pokedex = () => {
   const [query, setQuery] = useState<PokemonsRegistryQuery>({ name: '' });
+  const { data: types } = useAppSelector(getPokemonTypesSelector);
   // const [searchValue, setSearchValue] = useState<string>('');
   // const debounceValue = useDebounce(searchValue, 500);
 
   const { data, isLoading } = useData<PokemonsRegistry>(Endpoints.GET_POKEMONS, { query }, [query]);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getPokemonTypes());
+  }, [dispatch]);
 
   const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     // setSearchValue(e.target.value);
@@ -63,9 +63,9 @@ const Pokedex = () => {
           <option disabled selected>
             Type
           </option>
-          {pokemonTypeOptions.map((option) => (
-            <option key={option.key} value={option.key}>
-              {option.label}
+          {types?.map((option) => (
+            <option key={option} value={option}>
+              {option}
             </option>
           ))}
         </select>

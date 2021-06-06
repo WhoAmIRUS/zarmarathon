@@ -7,6 +7,8 @@ export enum Endpoints {
   CREATE_POKEMON = 'createPokemon',
   UPDATE_POKEMON = 'updatePokemon',
   DELETE_POKEMON = 'deletePokemon',
+
+  GET_POKEMON_TYPES = 'getPokemonTypes',
 }
 
 export interface Query {
