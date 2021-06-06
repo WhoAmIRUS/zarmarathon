@@ -62,6 +62,12 @@ const config: Config = {
           pathname: 'api/v1/pokemon/:id/delete',
         },
       },
+      [Endpoints.GET_POKEMON_TYPES]: {
+        method: 'GET',
+        uri: {
+          pathname: 'api/v1/types',
+        },
+      },
     },
   },
 };
